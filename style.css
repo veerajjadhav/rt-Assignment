@@ -893,3 +893,36 @@ object {
 .gallery-caption {
     display: block;
 }
+/*----------------------------Custom Css------------------------------*/
+.main-header{
+    display: flex;
+    justify-content:space-between;
+    margin-top: 20px;
+}
+.wrapper{
+    width: 100%;
+    padding: 0 100px;
+    background: #eeeaeb;
+}
+.secondry-menu .list-inline li a{
+    color: black;
+    padding: 0 13px;
+}
+.site-branding .site-title a{
+    color:#676767;
+}
+.secondry-menu .list-inline li:first-child{
+    border-right:2px solid #333132;
+}
+.header-search-form{
+    display: flex;
+    justify-content:flex-end;
+}
+input[type=search]{
+    border:1px solid #7f9ebb;
+}
+.logo{
+
+    display: inline-block;
+}
+/*----------------------------main header------------------------------*/
