@@ -1,10 +1,11 @@
-jQuery( document ).ready( function () {
-    jQuery( '.test' ).slick( {
-//        dots: true,
+jQuery( document ).ready( function ( ) {
+    jQuery( '.slider' ).slick( {
+        dots: true,
         infinite: true,
         speed: 500,
         fade: true,
-        cssEase: 'linear'
+        cssEase: 'linear',
+        arrows: false
     } );
-
 } );
+

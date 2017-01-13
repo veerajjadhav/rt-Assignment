@@ -25,7 +25,7 @@ if ( !function_exists( 'rt_assignment_setup' ) ) :
 		 */
 		load_theme_textdomain( 'rt-assignment', get_template_directory() . '/languages' );
 
-		// Add default posts and comments RSS feed links to head.
+// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
 		/*
@@ -43,7 +43,7 @@ if ( !function_exists( 'rt_assignment_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
+// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1'		 => esc_html__( 'Primary', 'rt-assignment' ),
 			'header-menu'	 => esc_html__( 'Top-menu', 'rt-assignment' ),
@@ -61,14 +61,15 @@ if ( !function_exists( 'rt_assignment_setup' ) ) :
 			'gallery',
 			'caption',
 		) );
+		add_image_size( 'slider-image', 677, 400, true );
 
-		// Set up the WordPress core custom background feature.
+// Set up the WordPress core custom background feature.
 		add_theme_support( 'custom-background', apply_filters( 'rt_assignment_custom_background_args', array(
 			'default-color'	 => 'ffffff',
 			'default-image'	 => '',
 		) ) );
 
-		// Add theme support for selective refresh for widgets.
+// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
 		add_theme_support( 'custom-logo' );
 	}
@@ -113,6 +114,12 @@ add_action( 'widgets_init', 'rt_assignment_widgets_init' );
  */
 function rt_assignment_scripts() {
 
+	$query_args = array(
+		'family' => 'Droid+Serif:400,700'
+	);
+	wp_register_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
+
+	wp_enqueue_style( 'google_fonts' );
 
 	wp_enqueue_script( 'rt-assignment-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
@@ -121,6 +128,8 @@ function rt_assignment_scripts() {
 	wp_enqueue_style( 'slick-css', get_template_directory_uri() . '/lib/slick/slick.css' );
 
 	wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/lib/slick/slick.min.js', array( 'jquery' ) );
+
+
 
 	wp_enqueue_style( 'rt-assignment-style', get_stylesheet_uri() );
 
@@ -161,4 +170,6 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+require get_template_directory() . '/lib/customizer/customizer.php';
 
